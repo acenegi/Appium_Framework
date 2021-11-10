@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <listeners>
+        <listener class-name="ExtentLitsners.ExtentListeners"></listener>
+    </listeners>
+
+   <test name="Login Screen Test" enabled="true">
+       <classes>
+           <class name="LoginScreen_Page_test"></class>
+       </classes>
+   </test>
+    <test name="Choose Screen Test" enabled="true">
+        <classes>
+            <class name="ChooseTopicScreen_Page_Test"></class>
+        </classes>
+    </test>
+
+</suite>
