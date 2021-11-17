@@ -6,14 +6,30 @@
         <listener class-name="ExtentLitsners.ExtentListeners"></listener>
     </listeners>
 
-   <test name="Login Screen Test" enabled="true">
+   <test name="Login Screen Test" enabled="false">
        <classes>
            <class name="LoginScreen_Page_test"></class>
        </classes>
    </test>
-    <test name="Choose Screen Test" enabled="true">
+    <test name="Choose Screen Test" enabled="false">
         <classes>
             <class name="ChooseTopicScreen_Page_Test"></class>
+        </classes>
+    </test>
+
+    <test name="User Screen Test" enabled="true">
+        <classes>
+            <class name="E_Commerce_UserScreen_Page_Test"></class>
+        </classes>
+    </test>
+    <test name="Product Screen Test" enabled="true">
+        <classes>
+            <class name="E_Commerce_ProductScreen_Page_Test"></class>
+        </classes>
+    </test>
+    <test name="Cart Screen Test" enabled="true">
+        <classes>
+            <class name="E_Commerce_CartScreen_Page_Test"></class>
         </classes>
     </test>
 

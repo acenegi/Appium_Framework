@@ -27,6 +27,8 @@ public class BaseClass {
 	AppiumDriverLocalService server;
 	
 	static File src = new File("./Configuration/Android.properties");
+
+
 	
 	String DeviceName = ConfigUtility.readConfig.Config(src, "DeviceName");
 	String PlatformName = ConfigUtility.readConfig.Config(src, "PlatformName");
@@ -35,6 +37,8 @@ public class BaseClass {
 	String AppPackage = ConfigUtility.readConfig.Config(src, "AppPackage");
 	String AppActivity = ConfigUtility.readConfig.Config(src, "AppActivity");
 	String ServerPort = ConfigUtility.readConfig.Config(src, "ServerPort");
+	String appPath = ConfigUtility.readConfig.Config(src, "appPath");
+	String appName = ConfigUtility.readConfig.Config(src, "appName");
 	
 	//static int Timewait = Integer.parseInt(ConfigUtility.readConfig.Config(src, "wait"));
 	
@@ -60,16 +64,17 @@ public class BaseClass {
 	public void setCapabilities() {
 		
 		try {
-			
+			File app = new File(appPath,appName);
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceName);
 			caps.setCapability(CapabilityType.PLATFORM_NAME, PlatformName);
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, PlatformVersion);
 			caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName);
-
+			caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,14);
+			caps.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		
-			caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppPackage);
-			caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppActivity);
+			//caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppPackage);
+			//caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppActivity);
 			
 			URL url = new URL("http://127.0.0.1:"+ServerPort+"/wd/hub");
 			driver =new AndroidDriver<MobileElement>(url, caps);

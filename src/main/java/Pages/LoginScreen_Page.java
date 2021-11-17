@@ -4,11 +4,10 @@ import Screen.LoginScreenObject;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
-
 import BaseLibrary.BaseClass;
-
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
@@ -23,6 +22,7 @@ public class LoginScreen_Page extends BaseClass implements LoginScreenObject {
 	}
 
 	@AndroidFindBy(id = getStarted_ID)
+
 	private WebElement started;
 
 	public void ClickedOn_Get_Started_Button() {
